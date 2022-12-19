@@ -40,7 +40,7 @@ CopyTilemap:
     dec bc
     ld a, b
     or a, c
-    jp nz, CopyTileMap
+    jp nz, CopyTilemap
     
 ; Turn on LCD
 	ld a, LCDCF_ON | LCDCF_BGON
