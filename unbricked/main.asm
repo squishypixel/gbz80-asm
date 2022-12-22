@@ -27,7 +27,7 @@ WaitVBlank: 			; Do not turn off LCD outside of VBlank
     call Memcopy
 
 ; Copy Tile Data
-    lddde, Paddle
+    ld de, Paddle
     ld hl, $8000
     ld bc, PaddleEnd - Paddle
     call Memcopy
@@ -69,19 +69,6 @@ Main:
     cp 144
     jp nc, Main
 
-; Copy bytes from one area to another
-; de: source
-; hl: destination
-; bc: length
-Memcopy:
-    ld a, [de]
-    ld [hli], a
-    inc de
-    dec bc
-    ld, a b
-    or a, c
-    jp nz, Memcopy
-    ret
 
 WaitVBlank2:
     ld a, [rLY]
@@ -95,7 +82,7 @@ WaitVBlank2:
     jp nz, Main
 
     ; Reset counter to 0
-    lds a, 0
+    ld a, 0
     ld [wFrameCounter], a
 
     ; Move the paddle one pixel to the right
@@ -103,6 +90,20 @@ WaitVBlank2:
     inc a
     ld [_OAMRAM + 1], a
     jp Main
+
+
+; de: source
+; hl: destination
+; bc: length
+Memcopy:
+    ld a, [de]
+    ld [hli], a
+    inc de
+    dec bc
+    ld a, b
+    or a, c
+    jp nz, Memcopy
+    ret
 
 Tiles:
     dw `33333333
