@@ -24,7 +24,7 @@ WaitVBlank: 			; Do not turn off LCD outside of VBlank
     ld de, Tilemap
     ld hl, $9800
     ld bc, TilemapEnd - Tilemap
-    casl Memcopy
+    call Memcopy
 
 ; Copy Tile Data
     lddde, Paddle
