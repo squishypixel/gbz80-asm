@@ -50,7 +50,7 @@ ClearOam:
     ld [hl], a
 
 ; Turn on LCD
-    ld a, LCDCF_ON | LCDCF_BGON
+    ld a, LCDCF_ON | LCDCF_BGON | LCDCF_OBJON
     ld [rLCDC] , a
     
     ; During first blank frame, init display registers
