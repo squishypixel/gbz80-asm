@@ -3,8 +3,8 @@
 00:0150 WaitVBlank
 00:0187 ClearOam
 00:01ad Main
-00:01b8 WaitVBlank2
-00:01db Memcopy
+00:01b5 WaitVBlank2
+00:01d8 Memcopy
 00:01e2 Tiles
 00:0382 TilesEnd
 00:0382 Tilemap
